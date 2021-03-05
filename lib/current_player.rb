@@ -1,20 +1,18 @@
-def display_board(board)
-  puts " #{board[0]} | #{board[1]} | #{board[2]} "
-  puts "-----------"
-  puts " #{board[3]} | #{board[4]} | #{board[5]} "
-  puts "-----------"
-  puts " #{board[6]} | #{board[7]} | #{board[8]} "
+
+def turn_count(board)
+  counter = 0
+board.each do |move|
+  if move == 'X' || move == 'O'
+  counter +=1
+  end
+ end
+ counter
 end
 
-# code your input_to_index and move method here!
-
-
-def input_to_index(user_input)
-  user_input.to_i-1 
-  
-end
-
-board = [" ", " ", " "]
-def move (board, index, value= "X")
-  board[index]= value
+def current_player(board)
+  if turn_count(board).even?
+    return "X"
+  else
+    return "O"
+  end
 end
